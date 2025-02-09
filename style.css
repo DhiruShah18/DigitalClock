@@ -1,0 +1,107 @@
+@keyframes backgroundGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(270deg, #ff6f61, #de5833, #61dafb, #1e90ff);
+    background-size: 200% 200%;
+    animation: backgroundGradient 10s ease infinite;
+    color: #ffffff;
+}
+
+.clock-container {
+    text-align: center;
+}
+
+.datetime-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.date, .circle {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.date {
+    font-size: 2.3rem;
+    background: linear-gradient(100deg, rgb(30, 250, 9), rgb(199, 248, 20));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+@keyframes borderAnimation {
+    0% {border-color: #ff6f61;}
+    25% {border-color: #de5833;}
+    50% {border-color: #61dafb;}
+    75% {border-color: #1e90ff;}
+    100% {border-color: #ff6f61;}
+}
+
+.circle {
+    border: 8px solid;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    animation: borderAnimation 5s linear infinite, pulse 2s infinite;
+    position: relative;
+}
+
+.circle::before {
+    content: '';
+    width: 80%;
+    height: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    position: absolute;
+}
+
+#hours, #minutes, #seconds {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: white;
+    margin: 0; 
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
